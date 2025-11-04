@@ -16,7 +16,7 @@ SHViT_s1 = {
     }
 
 @register_model
-def shvit_s1(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, model_cfg=SHViT_s1):
+def shvit_s1(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, pretrained_cfg_overlay=None, model_cfg=SHViT_s1):
     model = SHViT(num_classes=num_classes, distillation=distillation, **model_cfg)
     if pretrained:
         pretrained = _checkpoint_url_format.format(pretrained)
@@ -41,7 +41,7 @@ SHViT_s2 = {
     }
 
 @register_model
-def shvit_s2(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, model_cfg=SHViT_s2):
+def shvit_s2(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, pretrained_cfg_overlay=None, model_cfg=SHViT_s2):
     model = SHViT(num_classes=num_classes, distillation=distillation, **model_cfg)
     if pretrained:
         pretrained = _checkpoint_url_format.format(pretrained)
@@ -66,7 +66,7 @@ SHViT_s3 = {
     }
 
 @register_model
-def shvit_s3(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, model_cfg=SHViT_s3):
+def shvit_s3(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, pretrained_cfg_overlay=None, model_cfg=SHViT_s3):
     model = SHViT(num_classes=num_classes, distillation=distillation, **model_cfg)
     if pretrained:
         pretrained = _checkpoint_url_format.format(pretrained)
@@ -91,7 +91,7 @@ SHViT_s4 = {
     }
 
 @register_model
-def shvit_s4(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, model_cfg=SHViT_s4):
+def shvit_s4(num_classes=1000, pretrained=False, distillation=False, fuse=False, pretrained_cfg=None, pretrained_cfg_overlay=None, model_cfg=SHViT_s4):
     model = SHViT(num_classes=num_classes, distillation=distillation, **model_cfg)
     if pretrained:
         pretrained = _checkpoint_url_format.format(pretrained)
