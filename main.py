@@ -344,7 +344,7 @@ def main(args):
         if 'model' in checkpoint:
             teacher_model.load_state_dict(checkpoint['model'])
         else:
-            teacher_model.load_state_dict(checkpoint)
+            teacher_model.load_state_dict(checkpoint, strict=False)
         teacher_model.to(device)
         teacher_model.eval()
 
