@@ -6,7 +6,7 @@ import itertools
 import numpy as np
 
 from timm.models.vision_transformer import trunc_normal_
-from timm.models.layers import SqueezeExcite, DropPath, to_2tuple
+from timm.layers import SqueezeExcite, DropPath, to_2tuple
 
 from mmcv_custom import load_checkpoint, _load_checkpoint, load_state_dict
 from mmdet.utils import get_root_logger
