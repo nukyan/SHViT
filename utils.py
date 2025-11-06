@@ -253,7 +253,7 @@ def load_model(modelpath, model):
     A function to load model from a checkpoint, which is used 
     for fine-tuning on a different resolution.
     '''
-    checkpoint = torch.load(modelpath, map_location='cpu')
+    checkpoint = torch.load(modelpath, map_location='cpu', weights_only=False)
     state_dict = checkpoint['model']
     model_state_dict = model.state_dict()
         # bicubic interpolate attention_biases if not match

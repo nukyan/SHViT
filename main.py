@@ -193,10 +193,6 @@ def get_args_parser():
 def main(args):
     utils.init_distributed_mode(args)
 
-    if args.distillation_type != 'none' and args.finetune and not args.eval:
-        raise NotImplementedError(
-            "Finetuning with distillation not yet supported")
-
     device = torch.device(args.device)
 
     # fix the seed for reproducibility
@@ -284,6 +280,14 @@ def main(args):
             if k in checkpoint_model and checkpoint_model[k].shape != state_dict[k].shape:
                 print(f"Removing key {k} from pretrained checkpoint")
                 del checkpoint_model[k]
+
+        if args.distillation_type != 'none':
+            for k in ['head_dist.l.weight', 'head_dist.l.bias',
+                      'head_dist.bn.weight', 'head_dist.bn.bias',
+                      'head_dist.bn.running_mean', 'head_dist.bn.running_var']:
+                if not k in checkpoint_model and k in state_dict:
+                    print(f"Adding missing distillation key {k}")
+                    checkpoint_model[k] = state_dict[k]
 
         msg = model.load_state_dict(checkpoint_model, strict=False)
         print(msg)
